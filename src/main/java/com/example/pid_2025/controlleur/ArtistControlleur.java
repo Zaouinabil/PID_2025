@@ -63,4 +63,3 @@ public class ArtistControlleur {
         return "hello from rest";
     }
 }
-//testt
