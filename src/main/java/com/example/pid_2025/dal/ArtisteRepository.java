@@ -11,4 +11,5 @@ public interface ArtisteRepository extends CrudRepository<Artiste,Long> {
     List<Artiste> findArtistesByFirstname( String name);
 
 
+
 }
