@@ -3,7 +3,7 @@ package com.example.pid_2025.entities;
     public enum UserRole {
         ADMIN("admin"),
         MEMBER("member"),
-        AFFILIATE("affiliatee"),
+        AFFILIATE("affiliate"),
         PRESS("press"),
         PRODUCER("producer");
 
