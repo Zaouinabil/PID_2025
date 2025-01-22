@@ -13,7 +13,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class Artiste {
+public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
