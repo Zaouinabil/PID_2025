@@ -1,16 +1,14 @@
 package com.example.pid_2025.controlleur;
-
 import com.example.pid_2025.dal.ArtistRepository;
 import com.example.pid_2025.entities.Artist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("/artist")
-public class ArtistControlleur {
+public class ArtistController {
 
     @Autowired
     ArtistRepository artistRepository;
