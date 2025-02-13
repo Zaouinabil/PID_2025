@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/main}">
+    <title>Accueil</title>
+</head>
+<body>
+<div class="container">
+    <div id="notification" th:replace="~{main :: notification}"></div>
+    <div layout:fragment="content">
+        <h2>Projet Réservations - Accueil</h2>
+    </div>
+</div>
+</body>
+</html>

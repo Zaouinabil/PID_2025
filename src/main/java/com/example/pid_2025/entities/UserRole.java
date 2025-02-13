@@ -13,6 +13,11 @@ package com.example.pid_2025.entities;
             this.role = role;
         }
 
+        public String getRole() {
+            return role;
+        }
+
+
         public String getValue() {
             return role;
         }
