@@ -4,15 +4,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.*;
 import java.time.LocalDateTime;
-@Data
+
+
 @Entity
-
-
-public class user {
+public class User {
     @Id
     private int id ;
-
-
     @Getter
     private String login ;
     private String password;
@@ -23,7 +20,7 @@ public class user {
     private String role;
     private LocalDateTime created_at;
 
-    public user(int id, String login, String password, String firstname, String lastname, String email, String langue, String role, LocalDateTime created_at) {
+    public User(int id, String login, String password, String firstname, String lastname, String email, String langue, String role, LocalDateTime created_at) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -35,24 +32,24 @@ public class user {
         this.created_at = created_at;
     }
 
-    public user() {
-
-    }
-
+    public User() { }
     public void setLogin(String login) {
         this.login = login;
     }
 
+    public String getlogin ( String login) { return  login ;}
     public String getRole() {
         return role;
     }
-
     public int getId() {
         return id;
     }
-
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     @Override

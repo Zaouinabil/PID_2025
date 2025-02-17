@@ -1,20 +1,19 @@
 package com.example.pid_2025.dal;
 
-import com.example.pid_2025.entities.user;
+import com.example.pid_2025.entities.User;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.security.core.userdetails.User;
 
 import java.util.List;
 
-    public interface UserRepository extends CrudRepository<user, Long> {
+    public interface UserRepository extends CrudRepository<User, Long> {
 
-        user findById(long id);
+        User findById(long id);
 
-        List<user> findAll();
+        List<User> findAll();
 
-        List<user> finByLastname(String lastname);
-        List<user> findAllByEmail(String email);
+        List<User> findBylastename(String lastname);
+        List<User> findAllByEmail(String email);
 
-        User findByLogin();
+        org.springframework.security.core.userdetails.User findByLogin(String username);
     }
 

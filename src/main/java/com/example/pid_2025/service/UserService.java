@@ -1,28 +1,28 @@
 package com.example.pid_2025.service;
 
 import com.example.pid_2025.dal.UserRepository;
-import com.example.pid_2025.entities.user;
-import org.apache.catalina.User;
+import com.example.pid_2025.entities.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
     private UserRepository userRepository;
 
-    public List<user> getAllUsers(){
-        List<user> users = new ArrayList<>();
+    public List<User> getAllUsers(){
+        List<User> users = new ArrayList<>();
         userRepository.findAll().forEach(users::add);
 
         return  users;
     }
-    public user getUser(long id) {
+    public User getUser(long id) {
         return userRepository.findById(id);
     }
-    public void addUser(user user) {
+    public void addUser(User user) {
         userRepository.save(user);
 
     }
-    public void updateUser(long id, user user) {
+    public void updateUser(long id, User user) {
 
         userRepository.save(user);
     }
