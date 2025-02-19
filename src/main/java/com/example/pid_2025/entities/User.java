@@ -2,7 +2,7 @@ package com.example.pid_2025.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.*;
+
 import java.time.LocalDateTime;
 
 
@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 public class User {
     @Id
     private int id ;
-    @Getter
     private String login ;
     private String password;
     private String firstname;
@@ -37,7 +36,9 @@ public class User {
         this.login = login;
     }
 
-    public String getlogin ( String login) { return  login ;}
+    public String getLogin() {
+        return this.login;
+    }
     public String getRole() {
         return role;
     }

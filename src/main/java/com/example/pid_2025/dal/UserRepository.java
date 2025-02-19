@@ -1,19 +1,25 @@
 package com.example.pid_2025.dal;
 
-import com.example.pid_2025.entities.User;
+import com.example.pid_2025.entities.User; // Importez votre classe User
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Optional;
 
-    public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
 
-        User findById(long id);
+    // Trouver un utilisateur par son ID
+    Optional<User> findById(long id);
 
-        List<User> findAll();
+    // Trouver tous les utilisateurs
+    List<User> findAll();
 
-        List<User> findBylastename(String lastname);
-        List<User> findAllByEmail(String email);
+    // Trouver des utilisateurs par leur nom de famille
+    List<User> findByLastname(String lastname);
 
-        org.springframework.security.core.userdetails.User findByLogin(String username);
-    }
+    // Trouver des utilisateurs par leur email
+    List<User> findAllByEmail(String email);
 
+    // Trouver un utilisateur par son login (nom d'utilisateur)
+    Optional<User> findByLogin(String login); // Retourne un Optional<User>
+}
