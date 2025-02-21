@@ -21,5 +21,5 @@ public interface UserRepository extends CrudRepository<User, Long> {
     List<User> findAllByEmail(String email);
 
     // Trouver un utilisateur par son login (nom d'utilisateur)
-    Optional<User> findByLogin(String login); // Retourne un Optional<User>
+    User findByLogin(String login); // Retourne un Optional<User>
 }

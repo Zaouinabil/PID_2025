@@ -3,7 +3,9 @@ package com.example.pid_2025.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
+import javax.management.relation.Role;
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Entity
@@ -39,7 +41,7 @@ public class User {
     public String getLogin() {
         return this.login;
     }
-    public String getRole() {
+    public List<Role> getRole() {
         return role;
     }
     public int getId() {
