@@ -15,8 +15,7 @@ import org.springframework.security.web.authentication.LoginUrlAuthenticationEnt
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfig {
-    @Autowired
-    private CustomUserDetailsService customUserDetailsService;
+
 
     @Bean
     public SecurityFilterChain configure(final HttpSecurity http) throws Exception {
@@ -41,13 +40,13 @@ public class SpringSecurityConfig {
     }
 
 
-    @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity http, BCryptPasswordEncoder bCryptPasswordEncoder) throws Exception {
-        AuthenticationManagerBuilder authMngrBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
-        authMngrBuilder.userDetailsService(customUserDetailsService).passwordEncoder(bCryptPasswordEncoder);
-
-        return authMngrBuilder.build();
-    }
+//    @Bean
+//    public AuthenticationManager authenticationManager(HttpSecurity http, BCryptPasswordEncoder bCryptPasswordEncoder) throws Exception {
+//        AuthenticationManagerBuilder authMngrBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
+//        authMngrBuilder.userDetailsService(customUserDetailsService).passwordEncoder(bCryptPasswordEncoder);
+//
+//        return authMngrBuilder.build();
+//    }
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {

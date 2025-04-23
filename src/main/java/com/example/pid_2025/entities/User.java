@@ -1,14 +1,18 @@
 package com.example.pid_2025.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.*;
 
-import javax.management.relation.Role;
 import java.time.LocalDateTime;
 import java.util.List;
 
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class User {
     @Id
     private int id ;
@@ -21,43 +25,10 @@ public class User {
     private String role;
     private LocalDateTime created_at;
 
-    public User(int id, String login, String password, String firstname, String lastname, String email, String langue, String role, LocalDateTime created_at) {
-        this.id = id;
-        this.login = login;
-        this.password = password;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.langue = langue;
-        this.role = role;
-        this.created_at = created_at;
-    }
+    @OneToMany
+    private List<Role> roles ;
 
-    public User() { }
-    public void setLogin(String login) {
-        this.login = login;
-    }
 
-    public String getLogin() {
-        return this.login;
-    }
-    public List<Role> getRole() {
-        return role;
-    }
-    public int getId() {
-        return id;
-    }
-    public void setRole(String role) {
-        this.role = role;
-    }
 
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String toString() {
-        return login + "(" + firstname + " " + lastname + " - " + role + ")";
-    }
 
 }
