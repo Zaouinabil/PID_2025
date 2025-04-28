@@ -28,7 +28,7 @@ public class ArtistController {
 
     @GetMapping("/{name}")
     public List<Artist> getByName(@PathVariable String name){
-        return artistRepository.findArtistesByFirstname( name );
+        return artistRepository.findByLastname( name );
     }
     @PostMapping("/add")
     public Artist addArtist (@RequestBody Artist newArtist){

@@ -1,11 +1,13 @@
 package com.example.pid_2025.entities;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name="artist_type")
+@Data
 
 public class ArtisteType {
     @Id
@@ -38,23 +40,9 @@ public class ArtisteType {
     public Long getId() {
         return id;
     }
-
     public Artist getArtist() {
         return artist;
     }
-
-    public void setArtist(Artist artist) {
-        this.artist = artist;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
-    }
-
     public List<Show> getShows() {
         return shows;
     }
@@ -76,11 +64,9 @@ public class ArtisteType {
 
         return this;
     }
-
     @Override
     public String toString() {
         return "ArtistType [id=" + id + ", artist=" + artist + ", type=" + type
                 + ", shows=" + shows + "]";
     }
-
 }

@@ -2,9 +2,7 @@ package com.example.pid_2025.entities;
 
 import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
