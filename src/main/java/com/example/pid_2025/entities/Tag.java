@@ -1,10 +1,13 @@
 package com.example.pid_2025.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Getter
+@Setter
 @Entity
 @Table(name = "tags")
 public class Tag {
@@ -18,28 +21,10 @@ public class Tag {
     @ManyToMany(mappedBy = "tags")
     private List<Show> shows = new ArrayList<>();
 
-    // 🔁 Getters et Setters
-
-    public Long getId() {
-        return id;
-    }
-
-
-    public String getTag() {
-        return tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
     public List<Show> getShows() {
         return shows;
     }
 
-    public void setShows(List<Show> shows) {
-        this.shows = shows;
-    }
 
     @Override
     public String toString() {

@@ -1,11 +1,13 @@
 package com.example.pid_2025.entities;
-
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "representations")
 public class Representation {
@@ -34,37 +36,6 @@ public class Representation {
         this.location = location;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public Show getShow() {
-        return show;
-    }
-
-    public void setShow(Show show) {
-        this.show = show;
-    }
-
-    public LocalDateTime getWhen() {
-        return when;
-    }
-
-    public void setWhen(LocalDateTime when) {
-        this.when = when;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
 
     public Representation addUser(User user) {
         if (!this.users.contains(user)) {

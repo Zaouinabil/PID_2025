@@ -8,7 +8,6 @@ import java.util.List;
 @Entity
 @Table(name="artist_type")
 @Data
-
 public class ArtisteType {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -31,20 +30,10 @@ public class ArtisteType {
 
     protected ArtisteType() { }
 
-    public ArtistType(Artist artist, Type type, List<Show> shows) {
+    public ArtisteType(Artist artist, Type type, List<Show> shows) {
         this.artist = artist;
         this.type = type;
         this.shows = shows;
-    }
-
-    public Long getId() {
-        return id;
-    }
-    public Artist getArtist() {
-        return artist;
-    }
-    public List<Show> getShows() {
-        return shows;
     }
 
     public ArtisteType addShow(Show show) {

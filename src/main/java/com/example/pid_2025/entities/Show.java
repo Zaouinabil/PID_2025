@@ -3,8 +3,12 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.pid_2025.utils.Slugify;
 import jakarta.persistence.*;
+import lombok.Getter;
 
+
+@Getter
 @Entity
 @Table(name="shows")
 public class Show {
@@ -43,7 +47,7 @@ public class Show {
             name = "artist_type_show",
             joinColumns = @JoinColumn(name = "show_id"),
             inverseJoinColumns = @JoinColumn(name = "artist_type_id"))
-    private List<ArtistType> artistTypes = new ArrayList<>();
+    private List<ArtisteType> artistTypes = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
@@ -52,10 +56,7 @@ public class Show {
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
     private List<Tag> tags = new ArrayList<>();
-
-
     public Show() { }
-
     public Show(String title, String description, String posterUrl, Location location, boolean bookable,
                 double price) {
         Slugify slg = new Slugify();
@@ -70,29 +71,11 @@ public class Show {
         this.createdAt = LocalDateTime.now();
         this.updatedAt = null;
     }
-
-    // Getters et Setters
-    public Long getId() { return id; }
-
-    public String getSlug() { return slug; }
-
-    public String getTitle() { return title; }
-
     public void setTitle(String title) {
         this.title = title;
         Slugify slg = new Slugify();
         this.slug = slg.slugify(title);
     }
-
-    public String getDescription() { return description; }
-
-    public void setDescription(String description) { this.description = description; }
-
-    public String getPosterUrl() { return posterUrl; }
-
-    public void setPosterUrl(String posterUrl) { this.posterUrl = posterUrl; }
-
-    public Location getLocation() { return location; }
 
     public void setLocation(Location location) {
         if (this.location != null) {
@@ -118,15 +101,6 @@ public class Show {
 
     public List<Representation> getRepresentations() { return representations; }
 
-    // 🔁 Getters et Setters
-
-    public List<Tag> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-    }
 
     public Show addRepresentation(Representation representation) {
         if (!this.representations.contains(representation)) {
@@ -147,9 +121,9 @@ public class Show {
     }
 
     // Gestion de la relation ManyToMany avec ArtistType
-    public List<ArtistType> getArtistTypes() { return artistTypes; }
+    public List<ArtisteType> getArtistTypes() { return artistTypes; }
 
-    public Show addArtistType(ArtistType artistType) {
+    public Show addArtistType(ArtisteType artistType) {
         if (!this.artistTypes.contains(artistType)) {
             this.artistTypes.add(artistType);
             artistType.addShow(this);
@@ -157,14 +131,13 @@ public class Show {
         return this;
     }
 
-    public Show removeArtistType(ArtistType artistType) {
+    public Show removeArtistType(ArtisteType artistType) {
         if (this.artistTypes.contains(artistType)) {
             this.artistTypes.remove(artistType);
             artistType.getShows().remove(this);
         }
         return this;
     }
-
     @Override
     public String toString() {
         return "Show [id=" + id + ", slug=" + slug + ", title=" + title

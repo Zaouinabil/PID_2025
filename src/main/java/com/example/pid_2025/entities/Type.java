@@ -1,14 +1,16 @@
 package com.example.pid_2025.entities;
 
-        import jakarta.persistence.*;
-        import jakarta.validation.constraints.NotBlank;
-        import lombok.Data;
-        import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-        import java.util.ArrayList;
-        import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name = "types")
@@ -31,7 +33,7 @@ public class Type {
         this.type = type;
     }
 
-    public User.Type addArtist(Artist artist) {
+    public Type addArtist(Artist artist) {
         if (!this.artists.contains(artist)) {
             this.artists.add(artist);
             artist.getTypes().add(this);
@@ -39,7 +41,7 @@ public class Type {
         return this;
     }
 
-    public User.Type removeArtist(Artist artist) {
+    public Type  removeArtist(Artist artist) {
         if (this.artists.contains(artist)) {
             this.artists.remove(artist);
             artist.getTypes().remove(this);}

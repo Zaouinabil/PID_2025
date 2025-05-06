@@ -3,15 +3,11 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
-
-
-@Data
+@Getter
+@Setter
 @NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @Entity
 @Table(name="roles")
@@ -20,8 +16,6 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String role;
-
-
     @ManyToMany
     @JoinTable(
             name = "user_role",
@@ -29,25 +23,8 @@ public class Role {
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> users = new ArrayList<>();
 
-
     public Role(String role) {
         this.role = role;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public List<User> getUsers() {
-        return users;
     }
 
     public Role addUser(User user) {

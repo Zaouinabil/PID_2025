@@ -30,29 +30,7 @@ public class Locality {
         this.locality = locality;
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public String getLocality() {
-        return locality;
-    }
-
-    public void setLocality(String locality) {
-        this.locality = locality;
-    }
-
-    public List<Location> getLocations() {
-        return locations;
-    }
 
     public Locality addLocation(Location location) {
         if(!this.locations.contains(location)) {

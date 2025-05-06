@@ -6,9 +6,11 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
 @ToString
 @Entity
 @Table(name = "artists")
@@ -46,7 +48,6 @@ public class Artist {
         }
         return this;
     }
-
 
     @Override
     public String toString() {

@@ -14,7 +14,7 @@ public class ArtistController {
     ArtistRepository artistRepository;
 
 
-    @GetMapping("/")
+    @GetMapping("/all")
     public List<Artist> getAll(){
         System.out.println( artistRepository.findAll().stream().findFirst());
         return artistRepository.findAll() ;
@@ -30,10 +30,12 @@ public class ArtistController {
     public List<Artist> getByName(@PathVariable String name){
         return artistRepository.findByLastname( name );
     }
+
     @PostMapping("/add")
     public Artist addArtist (@RequestBody Artist newArtist){
         return artistRepository.save(newArtist);
     }
+
     @PutMapping("/updatLastName/{id}")
     public Artist updateLastName (@PathVariable Long id , @RequestBody String lastName){
 
@@ -42,7 +44,7 @@ public class ArtistController {
     return artistRepository.save(artist) ;
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public Artist updateArtiste (@PathVariable Long id , @RequestBody Artist newArtist){
 
         Artist artist = artistRepository.findById( id ).orElseThrow();
@@ -50,7 +52,6 @@ public class ArtistController {
         artist.setLastname( newArtist.getLastname());
         return artistRepository.save(artist) ;
     }
-
     @DeleteMapping("/delete/{id}")
     public void deleteArtist( @PathVariable long id ){
         artistRepository.deleteById(id);
