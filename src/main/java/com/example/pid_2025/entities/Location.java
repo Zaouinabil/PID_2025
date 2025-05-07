@@ -1,12 +1,10 @@
 package com.example.pid_2025.entities;
-
 import com.example.pid_2025.utils.Slugify;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -98,8 +96,6 @@ public class Location {
                 + website + ", phone=" + phone + ", shows=" + shows.size()
                 + ", representations=" + representations.size() + "]";
     }
-
-
 }
 
 
