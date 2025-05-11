@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-    @GetMapping("/")
+    @GetMapping("/home")
     public String home() {
         return "layouts/home"; // Cette vue doit correspondre à un fichier home.html dans le dossier templates
     }
